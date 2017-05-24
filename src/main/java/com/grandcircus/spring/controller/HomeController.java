@@ -23,22 +23,19 @@ public class HomeController {
                               @RequestParam("routee")String routeM,
                               @RequestParam("local")String loc,
                               @RequestParam("postal")String post,
-                              @RequestParam("count")String count){
+                              @RequestParam("count")String count,
+                                @RequestParam("strtN") String strt,
+                              @RequestParam("rou")String rout,
+                              @RequestParam("loca")String local,
+                              @RequestParam("posta")String postal,
+                              @RequestParam("userCountry")String userCount){
         String user= street + " " + routeM + " " + loc + " " + post + " "+count;
-
-        return new ModelAndView("result","addStuff",user);
-
-
-    }
-    @RequestMapping(value="/result2", method=RequestMethod.POST)
-    public ModelAndView route2(@RequestParam("strtN") String strt,
-                               @RequestParam("rou")String rout,
-                               @RequestParam("loca")String local,
-                               @RequestParam("posta")String postal,
-                               @RequestParam("userCountry")String userCount){
         String info= strt + " " + rout + " " + local + " " + postal + " " + userCount;
-        return new ModelAndView("result2","addStuff2",info);
+
+        return new ModelAndView("result","addStuff",user + " " + info);
+
 
     }
+
 
 }
